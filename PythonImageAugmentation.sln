@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.106
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "PythonImageAugmentation", "PythonImageAugmentation\PythonImageAugmentation.pyproj", "{92D582E5-3A24-46C2-97E8-4062C2B30C00}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{92D582E5-3A24-46C2-97E8-4062C2B30C00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92D582E5-3A24-46C2-97E8-4062C2B30C00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {51E980A3-57F5-4E3B-A1B1-1793AC3CB3DB}
+	EndGlobalSection
+EndGlobal

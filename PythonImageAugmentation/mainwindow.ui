@@ -1,0 +1,2152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1500</width>
+    <height>935</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">QWidget{
+background-color: #232a32;
+border:none;
+}
+
+QScrollBar:vertical{
+	background: rgba(255, 255, 255, 40);
+	padding:0px;
+	border-radius:6px;
+	max-width:12px;
+}
+
+QScrollBar::handle:vertical{
+	background: rgba(255, 255, 255, 80);
+	min-height:50px;
+	border-radius:6px;
+}
+
+QScrollBar::handle:vertical:hover{
+	background:#121F27;
+}
+
+QScrollBar::handle:vertical:pressed{
+	background: #3B414E;
+}
+
+QScrollBar::add-page:vertical{
+	background:none;
+}
+
+QScrollBar::sub-page:vertical{
+	background:none;
+}
+
+QScrollBar::add-line:vertical{
+	background:none;
+}
+
+QScrollBar::sub-line:vertical{
+	background:none;
+}
+
+QScrollBar:horizontal{
+	background: rgba(255, 255, 255, 40);
+	padding:0px;
+	border-radius:6px;
+	max-height:12px;
+}
+
+QScrollBar::handle:horizontal{
+	background: rgba(255, 255, 255, 80);
+	min-width:50px;
+	border-radius:6px;
+}
+
+QScrollBar::handle:horizontal:hover{
+	background:#121F27;
+}
+
+QScrollBar::handle:horizontal:pressed{
+	background: #3B414E;
+}
+
+QScrollBar::add-page:horizontal{
+	background:none;
+}
+
+QScrollBar::sub-page:horizontal{
+	background:none;
+}
+
+QScrollBar::add-line:horizontal{
+	background:none;
+}
+
+QScrollBar::sub-line:horizontal{
+	background:none;
+}
+QLabel {
+	color: #CCD1DD;
+	background: none;
+	border-style: none;
+}
+
+QPushButton {
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 5px;
+	border-color: #FFFFFF;
+	color: #FFFFFF;
+	background-color:none;
+}
+
+QPushButton:hover {
+	border-color: #386AE8;
+	color: #386AE8;
+	background-color: none;
+}
+
+QPushButton:pressed
+{
+    padding-top: -15px;
+    padding-bottom: -17px;
+}
+
+QPushButton:disabled {
+	background-color: rgb(26, 31, 38);
+	border-color: rgb(171, 171, 171);
+	color: rgb(171, 171, 171);
+}
+
+QGroupBox {
+	border-style: none;
+	border-width: 1px;
+	border-radius: 11px;
+	background-color: rgba(255, 255, 255, 15);
+	color:white;
+}
+
+
+QGroupBox:title {
+   /* color:rgb(28,151,234);*/
+    subcontrol-origin: margin;
+    left: 10px;
+}
+
+QGroupBox::indicator:checked {
+image: url(Resources/checkBox_checked.png);
+}
+
+QGroupBox::indicator:unchecked {
+image: url(Resources/checkBox_unchecked.png);
+}
+
+QLineEdit{
+	color:white;
+	border:none;
+	background-color:#3b414e;
+}
+
+
+QCheckBox {
+	color:white;
+background:transparent;
+}
+
+QCheckBox:disabled {
+	color:rgb(172, 172, 172);
+background:transparent;
+}
+
+QRadioButton {
+	color:white;
+background:transparent;
+}
+
+QRadioButton:disabled {
+	color:rgb(172, 172, 172);
+background:transparent;
+}
+
+QCheckBox::indicator:checked {
+	image:url(Resources/checkBox_checked.png);
+}
+
+QCheckBox::indicator:unchecked {
+	image:url(Resources/checkBox_unchecked.png);
+}
+
+QRadioButton::indicator:checked {
+	image:url(Resources/radioButton_checked.png);
+}
+
+QRadioButton::indicator:unchecked {
+	image:url(Resources/radioButton_unchecked.png);
+}
+
+QComboBox::disabled
+{
+	selection-background-color: #A9D158;
+    border-style: solid;
+    border: 1px solid #76797C;
+    border-radius: 2px;
+    padding: 5px;
+    min-width: 75px;
+	color:gray;
+}
+
+QComboBox::down-arrow
+{
+    image: url(Resources/down_arrow.png);
+}
+
+QComboBox
+{
+    selection-background-color: rgb(41, 170, 255);
+    border-style: solid;
+    border: 1px solid #ffffff;
+    border-radius: 7px;
+    padding: 5px;
+    font: 25 12px &quot;Microsoft YaHei Light&quot;;
+    color:white;
+}
+
+QComboBox:hover
+{
+    border: 1px solid #386ae8;
+  
+}
+
+QAbstractItemView
+{
+    background-color: rgb(55, 63, 74);
+    border-radius: 2px;
+	color:white;
+    border: 1px solid #76797C;
+    selection-background-color: #386ae8;
+}
+
+QComboBox::drop-down
+{
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+    width: 15px;
+    border-left-width: 0px;
+    border-left-color: darkgray;
+    border-left-style: solid;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}</string>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_6">
+    <property name="leftMargin">
+     <number>10</number>
+    </property>
+    <property name="topMargin">
+     <number>10</number>
+    </property>
+    <property name="rightMargin">
+     <number>10</number>
+    </property>
+    <property name="bottomMargin">
+     <number>10</number>
+    </property>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout" stretch="2,1">
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout_2" stretch="0,0">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <item>
+           <widget class="QPushButton" name="btn_OpenFile">
+            <property name="font">
+             <font>
+              <family>Microsoft YaHei Light</family>
+              <pointsize>16</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>Open</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btn_DICOMtoImage">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="font">
+             <font>
+              <family>Microsoft YaHei Light</family>
+              <pointsize>16</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>DICOM to Image</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btn_ROISquare">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="font">
+             <font>
+              <family>Microsoft YaHei Light</family>
+              <pointsize>16</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>ROI Square</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btn_ROISave">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="font">
+             <font>
+              <family>Microsoft YaHei Light</family>
+              <pointsize>16</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>ROI Save</string>
+            </property>
+            <property name="shortcut">
+             <string>R</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btn_Save">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="font">
+             <font>
+              <family>Microsoft YaHei Light</family>
+              <pointsize>16</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton {
+    color: rgb(255, 255, 255);
+ background-color: #386ae8;
+}
+
+QPushButton:hover{
+	background-color: rgba(56, 106, 232, 200);
+}
+
+QPushButton:pressed
+{
+    /*background-color: #A9D158;*/
+    background-color: #386ae8;
+    padding-top: -15px;
+    padding-bottom: -17px;
+}
+
+QPushButton:disabled {
+	background-color: rgb(26, 31, 38);
+	border-color: rgb(171, 171, 171);
+	color: rgb(171, 171, 171);
+}</string>
+            </property>
+            <property name="text">
+             <string>Save</string>
+            </property>
+            <property name="checkable">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QScrollArea" name="scrollArea">
+          <property name="widgetResizable">
+           <bool>true</bool>
+          </property>
+          <widget class="QWidget" name="scrollAreaWidgetContents">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>979</width>
+             <height>873</height>
+            </rect>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_13" stretch="0">
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QGroupBox" name="groupBox">
+              <property name="font">
+               <font>
+                <family>Microsoft YaHei Light</family>
+                <pointsize>16</pointsize>
+               </font>
+              </property>
+              <property name="title">
+               <string>Input Image</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_14" stretch="0,0,1,0">
+               <property name="leftMargin">
+                <number>9</number>
+               </property>
+               <property name="topMargin">
+                <number>30</number>
+               </property>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_26" stretch="1,3,0">
+                 <property name="leftMargin">
+                  <number>30</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="label_22">
+                   <property name="font">
+                    <font>
+                     <family>Microsoft YaHei Light</family>
+                     <pointsize>12</pointsize>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string>File List:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QComboBox" name="comboBox_FileList"/>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="btn_NextFile">
+                   <property name="font">
+                    <font>
+                     <family>Microsoft YaHei Light</family>
+                     <pointsize>12</pointsize>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string>Next</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_24" stretch="1,3,0">
+                 <property name="leftMargin">
+                  <number>30</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="label_21">
+                   <property name="font">
+                    <font>
+                     <family>Microsoft YaHei Light</family>
+                     <pointsize>12</pointsize>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string>Label Type:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QComboBox" name="comboBox_LabelType">
+                   <item>
+                    <property name="text">
+                     <string>None</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Benign</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Malignant</string>
+                    </property>
+                   </item>
+                  </widget>
+                 </item>
+                 <item>
+                  <spacer name="horizontalSpacer_7">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>40</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_23" stretch="1,10,1">
+                 <item>
+                  <spacer name="horizontalSpacer_4">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>40</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="label_ImageDisplay">
+                   <property name="font">
+                    <font>
+                     <family>Microsoft YaHei Light</family>
+                     <pointsize>16</pointsize>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">background-color: rgba(255, 255, 255, 15);</string>
+                   </property>
+                   <property name="text">
+                    <string>No Image</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignCenter</set>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <spacer name="horizontalSpacer_3">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>40</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="1,1,10,2">
+                 <item>
+                  <spacer name="horizontalSpacer_6">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>40</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="label_19">
+                   <property name="font">
+                    <font>
+                     <family>Microsoft YaHei Light</family>
+                     <pointsize>16</pointsize>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string>Frame:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QSlider" name="horizontalSlider_Frame">
+                   <property name="minimum">
+                    <number>0</number>
+                   </property>
+                   <property name="maximum">
+                    <number>0</number>
+                   </property>
+                   <property name="pageStep">
+                    <number>1</number>
+                   </property>
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="label_18">
+                   <property name="font">
+                    <font>
+                     <family>Microsoft YaHei Light</family>
+                     <pointsize>16</pointsize>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string>0</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_5">
+          <item>
+           <spacer name="horizontalSpacer_5">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btn_Process">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="font">
+             <font>
+              <family>Microsoft YaHei Light</family>
+              <pointsize>16</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>Process</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="groupBox_Rotate">
+          <property name="font">
+           <font>
+            <family>Microsoft YaHei Light</family>
+            <pointsize>16</pointsize>
+           </font>
+          </property>
+          <property name="title">
+           <string>Rotate</string>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+          <property name="checked">
+           <bool>false</bool>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_4">
+           <property name="leftMargin">
+            <number>30</number>
+           </property>
+           <property name="topMargin">
+            <number>30</number>
+           </property>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="0,0,0,0,0,0,3">
+             <property name="spacing">
+              <number>20</number>
+             </property>
+             <item>
+              <widget class="QLabel" name="label_2">
+               <property name="font">
+                <font>
+                 <family>Microsoft YaHei Light</family>
+                 <pointsize>12</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>Degree:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="lineEdit_DegreeBegin">
+               <property name="font">
+                <font>
+                 <family>Microsoft YaHei Light</family>
+                 <pointsize>12</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>0</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_15">
+               <property name="font">
+                <font>
+                 <family>Microsoft YaHei Light</family>
+                 <pointsize>12</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>to</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="lineEdit_DegreeEnd">
+               <property name="font">
+                <font>
+                 <family>Microsoft YaHei Light</family>
+                 <pointsize>12</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>355</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_17">
+               <property name="font">
+                <font>
+                 <family>Microsoft YaHei Light</family>
+                 <pointsize>12</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>Step:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QComboBox" name="comboBox_Step">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Microsoft YaHei Light</family>
+                 <pointsize>-1</pointsize>
+                 <weight>3</weight>
+                 <italic>false</italic>
+                 <bold>false</bold>
+                </font>
+               </property>
+               <item>
+                <property name="text">
+                 <string>5</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>10</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>15</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>20</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>25</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>30</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_2">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="groupBox_Sharpen">
+          <property name="font">
+           <font>
+            <family>Microsoft YaHei Light</family>
+            <pointsize>16</pointsize>
+           </font>
+          </property>
+          <property name="title">
+           <string>Sharpen</string>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+          <property name="checked">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="groupBox_Contrast">
+          <property name="font">
+           <font>
+            <family>Microsoft YaHei Light</family>
+            <pointsize>16</pointsize>
+           </font>
+          </property>
+          <property name="title">
+           <string>Contrast</string>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+          <property name="checked">
+           <bool>false</bool>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout">
+           <property name="leftMargin">
+            <number>30</number>
+           </property>
+           <property name="topMargin">
+            <number>30</number>
+           </property>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_7" stretch="1,10,1">
+             <property name="spacing">
+              <number>20</number>
+             </property>
+             <item>
+              <widget class="QLabel" name="label">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                 <horstretch>40</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Microsoft YaHei Light</family>
+                 <pointsize>12</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>Alpha:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QSlider" name="horizontalSlider_ContrastAlpha">
+               <property name="minimum">
+                <number>10</number>
+               </property>
+               <property name="maximum">
+                <number>30</number>
+               </property>
+               <property name="pageStep">
+                <number>1</number>
+               </property>
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_Alpha">
+               <property name="font">
+                <font>
+                 <family>Microsoft YaHei Light</family>
+                 <pointsize>12</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>1.0</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_8" stretch="1,10,1">
+             <property name="spacing">
+              <number>20</number>
+             </property>
+             <item>
+              <widget class="QLabel" name="label_3">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Microsoft YaHei Light</family>
+                 <pointsize>12</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>Beta:  </string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QSlider" name="horizontalSlider_ContrastBeta">
+               <property name="maximum">
+                <number>100</number>
+               </property>
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_Beta">
+               <property name="font">
+                <font>
+                 <family>Microsoft YaHei Light</family>
+                 <pointsize>12</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>0</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="groupBox_GaussianNoise">
+          <property name="font">
+           <font>
+            <family>Microsoft YaHei Light</family>
+            <pointsize>16</pointsize>
+           </font>
+          </property>
+          <property name="title">
+           <string>Gaussian Noise</string>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+          <property name="checked">
+           <bool>false</bool>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_5">
+           <property name="leftMargin">
+            <number>30</number>
+           </property>
+           <property name="topMargin">
+            <number>30</number>
+           </property>
+           <item>
+            <widget class="QGroupBox" name="horizontalGroupBox_3">
+             <layout class="QHBoxLayout" name="horizontalLayout_9" stretch="1,8">
+              <item>
+               <widget class="QLabel" name="label_4">
+                <property name="font">
+                 <font>
+                  <family>Microsoft YaHei Light</family>
+                  <pointsize>12</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Mean:</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_6">
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_10" stretch="1,10,1">
+                  <item>
+                   <widget class="QLabel" name="label_5">
+                    <property name="font">
+                     <font>
+                      <family>Microsoft YaHei Light</family>
+                      <pointsize>12</pointsize>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>B</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QSlider" name="horizontalSlider_MeanB">
+                    <property name="maximum">
+                     <number>255</number>
+                    </property>
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="label_MeanR">
+                    <property name="font">
+                     <font>
+                      <family>Microsoft YaHei Light</family>
+                      <pointsize>12</pointsize>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>0</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_11" stretch="1,10,1">
+                  <item>
+                   <widget class="QLabel" name="label_6">
+                    <property name="font">
+                     <font>
+                      <family>Microsoft YaHei Light</family>
+                      <pointsize>12</pointsize>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>G</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QSlider" name="horizontalSlider_MeanG">
+                    <property name="maximum">
+                     <number>255</number>
+                    </property>
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="label_MeanG">
+                    <property name="font">
+                     <font>
+                      <family>Microsoft YaHei Light</family>
+                      <pointsize>12</pointsize>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>0</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_12" stretch="1,10,1">
+                  <item>
+                   <widget class="QLabel" name="label_7">
+                    <property name="font">
+                     <font>
+                      <family>Microsoft YaHei Light</family>
+                      <pointsize>12</pointsize>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>R</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QSlider" name="horizontalSlider_MeanR">
+                    <property name="maximum">
+                     <number>255</number>
+                    </property>
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="label_MeanB">
+                    <property name="font">
+                     <font>
+                      <family>Microsoft YaHei Light</family>
+                      <pointsize>12</pointsize>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>0</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="horizontalGroupBox_7">
+             <layout class="QHBoxLayout" name="horizontalLayout_13" stretch="1,8">
+              <item>
+               <widget class="QLabel" name="label_11">
+                <property name="font">
+                 <font>
+                  <family>Microsoft YaHei Light</family>
+                  <pointsize>12</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Sigma:</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_7">
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_14" stretch="1,10,1">
+                  <item>
+                   <widget class="QLabel" name="label_12">
+                    <property name="font">
+                     <font>
+                      <family>Microsoft YaHei Light</family>
+                      <pointsize>12</pointsize>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>B</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QSlider" name="horizontalSlider_SigmaB">
+                    <property name="maximum">
+                     <number>255</number>
+                    </property>
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="label_SigmaR">
+                    <property name="font">
+                     <font>
+                      <family>Microsoft YaHei Light</family>
+                      <pointsize>12</pointsize>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>0</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_15" stretch="1,10,1">
+                  <item>
+                   <widget class="QLabel" name="label_14">
+                    <property name="font">
+                     <font>
+                      <family>Microsoft YaHei Light</family>
+                      <pointsize>12</pointsize>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>G</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QSlider" name="horizontalSlider_SigmaG">
+                    <property name="maximum">
+                     <number>255</number>
+                    </property>
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="label_SigmaG">
+                    <property name="font">
+                     <font>
+                      <family>Microsoft YaHei Light</family>
+                      <pointsize>12</pointsize>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>0</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_16" stretch="1,10,1">
+                  <item>
+                   <widget class="QLabel" name="label_16">
+                    <property name="font">
+                     <font>
+                      <family>Microsoft YaHei Light</family>
+                      <pointsize>12</pointsize>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>R</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QSlider" name="horizontalSlider_SigmaR">
+                    <property name="maximum">
+                     <number>255</number>
+                    </property>
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="label_SigmaB">
+                    <property name="font">
+                     <font>
+                      <family>Microsoft YaHei Light</family>
+                      <pointsize>12</pointsize>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>0</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="groupBox_Fliplr">
+          <property name="font">
+           <font>
+            <family>Microsoft YaHei Light</family>
+            <pointsize>16</pointsize>
+           </font>
+          </property>
+          <property name="title">
+           <string>Fliplr</string>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+          <property name="checked">
+           <bool>false</bool>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_8">
+           <property name="leftMargin">
+            <number>30</number>
+           </property>
+           <property name="topMargin">
+            <number>30</number>
+           </property>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_17">
+             <item>
+              <widget class="QCheckBox" name="checkBox_Vertical">
+               <property name="font">
+                <font>
+                 <family>Microsoft YaHei Light</family>
+                 <pointsize>12</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>Vertical</string>
+               </property>
+               <property name="checked">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="checkBox_Horizontal">
+               <property name="font">
+                <font>
+                 <family>Microsoft YaHei Light</family>
+                 <pointsize>12</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>Horizontal</string>
+               </property>
+               <property name="checked">
+                <bool>false</bool>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="groupBox_SaltAndPepper">
+          <property name="font">
+           <font>
+            <family>Microsoft YaHei Light</family>
+            <pointsize>16</pointsize>
+           </font>
+          </property>
+          <property name="title">
+           <string>Salt and Pepper</string>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+          <property name="checked">
+           <bool>false</bool>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_9">
+           <property name="leftMargin">
+            <number>30</number>
+           </property>
+           <property name="topMargin">
+            <number>30</number>
+           </property>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_18" stretch="2,12,2">
+             <item>
+              <widget class="QLabel" name="label_8">
+               <property name="font">
+                <font>
+                 <family>Microsoft YaHei Light</family>
+                 <pointsize>12</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>Salt</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QSlider" name="horizontalSlider_SaltAndPepper">
+               <property name="maximum">
+                <number>10</number>
+               </property>
+               <property name="pageStep">
+                <number>1</number>
+               </property>
+               <property name="sliderPosition">
+                <number>5</number>
+               </property>
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_9">
+               <property name="font">
+                <font>
+                 <family>Microsoft YaHei Light</family>
+                 <pointsize>12</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>Pepper</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_19" stretch="2,12,2">
+             <item>
+              <widget class="QLabel" name="label_10">
+               <property name="font">
+                <font>
+                 <family>Microsoft YaHei Light</family>
+                 <pointsize>12</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>Amount</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QSlider" name="horizontalSlider_Amount">
+               <property name="minimum">
+                <number>1</number>
+               </property>
+               <property name="maximum">
+                <number>100</number>
+               </property>
+               <property name="singleStep">
+                <number>10</number>
+               </property>
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_Amount">
+               <property name="font">
+                <font>
+                 <family>Microsoft YaHei Light</family>
+                 <pointsize>12</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>1</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="groupBox_Pad">
+          <property name="font">
+           <font>
+            <family>Microsoft YaHei Light</family>
+            <pointsize>16</pointsize>
+           </font>
+          </property>
+          <property name="title">
+           <string>Pad</string>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+          <property name="checked">
+           <bool>false</bool>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_10">
+           <property name="leftMargin">
+            <number>30</number>
+           </property>
+           <property name="topMargin">
+            <number>30</number>
+           </property>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_20">
+             <item>
+              <layout class="QVBoxLayout" name="verticalLayout_11">
+               <item>
+                <widget class="QCheckBox" name="checkBox_PadTop">
+                 <property name="font">
+                  <font>
+                   <family>Microsoft YaHei Light</family>
+                   <pointsize>12</pointsize>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>Top</string>
+                 </property>
+                 <property name="checked">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QCheckBox" name="checkBox_PadBottom">
+                 <property name="font">
+                  <font>
+                   <family>Microsoft YaHei Light</family>
+                   <pointsize>12</pointsize>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>Bottom</string>
+                 </property>
+                 <property name="checked">
+                  <bool>false</bool>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QVBoxLayout" name="verticalLayout_12">
+               <item>
+                <widget class="QCheckBox" name="checkBox_PadLeft">
+                 <property name="font">
+                  <font>
+                   <family>Microsoft YaHei Light</family>
+                   <pointsize>12</pointsize>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>Left</string>
+                 </property>
+                 <property name="checked">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QCheckBox" name="checkBox_PadRight">
+                 <property name="font">
+                  <font>
+                   <family>Microsoft YaHei Light</family>
+                   <pointsize>12</pointsize>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>Right</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_22" stretch="2,12,2">
+             <property name="spacing">
+              <number>6</number>
+             </property>
+             <item>
+              <widget class="QLabel" name="label_13">
+               <property name="font">
+                <font>
+                 <family>Microsoft YaHei Light</family>
+                 <pointsize>12</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>Offset: </string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QSlider" name="horizontalSlider_PadOffset">
+               <property name="minimum">
+                <number>1</number>
+               </property>
+               <property name="maximum">
+                <number>90</number>
+               </property>
+               <property name="singleStep">
+                <number>10</number>
+               </property>
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_PadOffset">
+               <property name="font">
+                <font>
+                 <family>Microsoft YaHei Light</family>
+                 <pointsize>12</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>1</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="groupBox_Crop">
+          <property name="font">
+           <font>
+            <family>Microsoft YaHei Light</family>
+            <pointsize>16</pointsize>
+           </font>
+          </property>
+          <property name="title">
+           <string>Crop</string>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+          <property name="checked">
+           <bool>false</bool>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_15">
+           <property name="leftMargin">
+            <number>30</number>
+           </property>
+           <property name="topMargin">
+            <number>30</number>
+           </property>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_21" stretch="2,12,2">
+             <item>
+              <widget class="QLabel" name="label_20">
+               <property name="font">
+                <font>
+                 <family>Microsoft YaHei Light</family>
+                 <pointsize>12</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>Ratio:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QSlider" name="horizontalSlider_CropRatio">
+               <property name="minimum">
+                <number>1</number>
+               </property>
+               <property name="maximum">
+                <number>50</number>
+               </property>
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_CropRatio">
+               <property name="font">
+                <font>
+                 <family>Microsoft YaHei Light</family>
+                 <pointsize>12</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>1</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <spacer name="verticalSpacer">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>btn_OpenFile</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>Btn_OpenFile_Clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>31</x>
+     <y>26</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>47</x>
+     <y>0</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_Process</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>Btn_Process_Clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1486</x>
+     <y>39</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>968</x>
+     <y>0</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>horizontalSlider_ContrastAlpha</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>Slider_ContrastAlpha_ValueChanged(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1424</x>
+     <y>214</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>729</x>
+     <y>0</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>horizontalSlider_ContrastBeta</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>Slider_ContrastBeta_ValueChanged(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1424</x>
+     <y>244</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>637</x>
+     <y>0</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>horizontalSlider_MeanB</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>label_MeanR</receiver>
+   <slot>setNum(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1431</x>
+     <y>323</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1467</x>
+     <y>323</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>horizontalSlider_MeanG</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>label_MeanG</receiver>
+   <slot>setNum(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1431</x>
+     <y>353</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1467</x>
+     <y>353</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>horizontalSlider_MeanR</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>label_MeanB</receiver>
+   <slot>setNum(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1431</x>
+     <y>383</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1467</x>
+     <y>383</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>horizontalSlider_SigmaB</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>label_SigmaR</receiver>
+   <slot>setNum(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1431</x>
+     <y>433</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1467</x>
+     <y>433</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>horizontalSlider_SigmaG</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>label_SigmaG</receiver>
+   <slot>setNum(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1431</x>
+     <y>463</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1467</x>
+     <y>463</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>horizontalSlider_SigmaR</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>label_SigmaB</receiver>
+   <slot>setNum(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1431</x>
+     <y>493</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1467</x>
+     <y>493</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>horizontalSlider_Amount</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>label_Amount</receiver>
+   <slot>setNum(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1417</x>
+     <y>670</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1477</x>
+     <y>670</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>horizontalSlider_PadOffset</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>label_PadOffset</receiver>
+   <slot>setNum(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1417</x>
+     <y>797</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1477</x>
+     <y>797</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_PadTop</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>CheckBox_PadTop_Toggled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1249</x>
+     <y>739</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>643</x>
+     <y>872</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_PadBottom</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>CheckBox_PadBottom_Toggled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1249</x>
+     <y>766</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>608</x>
+     <y>871</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_PadLeft</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>CheckBox_PadLeft_Toggled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1476</x>
+     <y>739</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>892</x>
+     <y>869</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_Save</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>Btn_Save_Clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>989</x>
+     <y>39</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>509</x>
+     <y>0</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>horizontalSlider_Frame</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>label_18</receiver>
+   <slot>setNum(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>455</x>
+     <y>900</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>971</x>
+     <y>903</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>horizontalSlider_Frame</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>Slider_Frame_ValueChanged(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>400</x>
+     <y>900</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>138</x>
+     <y>871</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_PadRight</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>CheckBox_PadRight_Toggled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1476</x>
+     <y>766</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1094</x>
+     <y>754</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>horizontalSlider_CropRatio</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>label_CropRatio</receiver>
+   <slot>setNum(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1417</x>
+     <y>866</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1477</x>
+     <y>866</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_NextFile</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>Btn_Next_Clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>971</x>
+     <y>107</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>326</x>
+     <y>-8</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>comboBox_FileList</sender>
+   <signal>currentIndexChanged(QString)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>ComboBox_FileList_CurrentIndexChanged(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>501</x>
+     <y>111</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>222</x>
+     <y>-2</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_ROISave</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>Btn_ROISave_Clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>938</x>
+     <y>38</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>389</x>
+     <y>-4</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_ROISquare</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>Btn_ROISquare_Clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>777</x>
+     <y>27</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>813</x>
+     <y>4</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_DICOMtoImage</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>Btn_DICOMtoImage_Clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>574</x>
+     <y>21</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>546</x>
+     <y>10</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>Btn_OpenFile_Clicked()</slot>
+  <slot>Btn_Process_Clicked()</slot>
+  <slot>Slider_ContrastAlpha_ValueChanged(int)</slot>
+  <slot>Slider_ContrastBeta_ValueChanged(int)</slot>
+  <slot>CheckBox_PadTop_Toggled(bool)</slot>
+  <slot>CheckBox_PadLeft_Toggled(bool)</slot>
+  <slot>CheckBox_PadBottom_Toggled(bool)</slot>
+  <slot>CheckBox_PadRight_Toggled(bool)</slot>
+  <slot>Btn_Save_Clicked()</slot>
+  <slot>Slider_Frame_ValueChanged(int)</slot>
+  <slot>Btn_Next_Clicked()</slot>
+  <slot>ComboBox_FileList_CurrentIndexChanged(QString)</slot>
+  <slot>Btn_ROISave_Clicked()</slot>
+  <slot>Btn_ROISquare_Clicked()</slot>
+  <slot>Btn_DICOMtoImage_Clicked()</slot>
+ </slots>
+</ui>
