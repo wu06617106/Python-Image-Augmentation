@@ -43,16 +43,13 @@ python PythonImageAugmentation.py
 * **Rotate**  
 Range 0 ~ 355  
 Step:5, 10, 15, 20, 25, 30  
-**最多有71種角度輸出**  
       
 * **Sharpen**  
-開啟或關閉  
-**有2種輸出**  
+開啟或關閉   
       
 * **Contrast**  
 Alpha: 1.0 ~ 3.0  
-Beta 0 ~ 100  
-**有2121種輸出**  
+Beta 0 ~ 100    
 
 * **Gaussian Noise**  
 設定三種通道的Mean與Sigma  
@@ -62,19 +59,16 @@ Mean R:0 ~ 255
 Sigma B:0 ~ 255  
 Sigma G:0 ~ 255  
 Sigma R:0 ~ 255  
-**256^6種輸出**  
 
 * **Fliplr**  
 可選擇三種翻轉方式
 Vertical, Horizontal, Both  
-**3種輸出**  
 
 * **Salt and Pepper**  
 調整salt 與 pepper間的比例
 S_VS_P: 0 ~ 1.0  
 調整noise的數量
 Amount: 1 ~ 100  
-**1100種輸出**  
 
 * **Pad**  
 設定哪個方向進行變形  
@@ -83,12 +77,10 @@ Top & Left, Top & Right
 Bottom & Left, Bottom & Right  
 設定要變形的比例(依照原始影像長寬計算)
 Offset: 1 ~ 90  
-**720種輸出**  
 
 * **Crop**  
 設定ROI區域放大並且裁切  
 Ratio: 1 ~ 50  
-**50種輸出**  
 
 * 使用者使用此工具時，如果將要套用的多個  
 處理方法打勾，就會全部應用至原始圖像。  
