@@ -17,15 +17,17 @@ import csv
 
 class ImageType(Enum):
     DCM = '.dcm'
+    RAW = '.raw'
+    RAWS = '.raws'
     PNG = '.png'
     JPG = '.jpg'
     BMP = '.bmp'
 
 class MainWindow(QMainWindow):
-    toolVersion = '1.5.6'
-    releaseDate = '2019/04/01'
+    toolVersion = '1.5.7'
+    releaseDate = '2019/12/10'
     inputImage  = None
-    imageData = [] # Storage the data of the DICOM file.
+    imageData = [] # Storage the data of the raw, raws or DICOM file.
     samplesPerPixel = 1 # DICOM samples per pixel
     imageWidth = 0
     imageHeight = 0
@@ -192,6 +194,40 @@ class MainWindow(QMainWindow):
             self.saveImageFileName = self.dirName + '_' +self.inputImageFileName + '_frame_1'
         return
 
+    # Open Raw or Raws file
+    def OpenRawOrRaws(self, fileName):
+        with open(fileName, mode='rb') as file: # b is important -> binary
+            binaryData = file.read()
+        header = array.array('d', binaryData[0:192])
+        self.imageWidth = int(header[16])
+        self.imageHeight = int(header[17])
+        self.imageSpacing = 40.0 / self.imageWidth
+        frameSize = self.imageWidth * self.imageHeight
+        picSize = frameSize + 192
+        self.numOfFrames = int(len(binaryData) / float(picSize))
+        self.horizontalSlider_Frame.setMinimum(1)
+        self.horizontalSlider_Frame.setMaximum(self.numOfFrames)
+        index = 0
+        for i in range(1, (self.numOfFrames + 1)):
+            begin = int(picSize * (i - 1))
+            end = int(picSize * i) 
+            mat = np.frombuffer(binaryData[begin:end], np.uint8)
+            end = int(self.imageWidth * self.imageHeight + 192) 
+            mat = np.frombuffer(mat[192:end], np.uint8)
+            mat = np.stack((mat,)*3, axis=-1)
+            if self.imageType == ImageType.RAW:
+                mat = self.SolveShiftProblem(0, self.imageWidth, self.imageHeight, mat)
+            reshapedImage = mat.reshape(self.imageHeight, self.imageWidth, 3)
+            self.imageData.append(reshapedImage)
+        if len(self.imageData) is not 0:
+            self.isLoadImage = True
+        self.inputImage = self.imageData[0]
+        if self.numOfFrames is 1:
+            self.saveImageFileName = self.dirName + '_' +self.inputImageFileName
+        else:
+            self.saveImageFileName = self.dirName + '_' +self.inputImageFileName + '_frame_1'
+        return
+
     def LoadFileList(self, dirPath):
         for fname in os.listdir(dirPath):
             strlist = fname.split('.')
@@ -220,6 +256,12 @@ class MainWindow(QMainWindow):
             elif fileType.lower() == 'bmp':
                 self.imageType = ImageType.BMP
                 self.OpenImageFile(fileName)
+            elif fileType.lower() == 'raw':
+                self.imageType = ImageType.RAW
+                self.OpenRawOrRaws(fileName)
+            elif fileType.lower() == 'raws':
+                self.imageType = ImageType.RAWS
+                self.OpenRawOrRaws(fileName)
             elif fileType.lower() == 'dcm':
                 self.imageType = ImageType.DCM
                 self.OpenDICOM(fileName)
@@ -270,7 +312,7 @@ class MainWindow(QMainWindow):
             fromCenter = False
             cv2.destroyAllWindows()
             temp = self.inputImage.copy()
-            if self.imageType is ImageType.DCM: 
+            if self.imageType is ImageType.RAW or self.imageType is ImageType.RAWS or self.imageType is ImageType.DCM: 
                 temp =  cv2.cvtColor(temp, cv2.COLOR_RGB2BGR)
             r = cv2.selectROI('Select ROI', temp, fromCenter, showCrosshair)
             cv2.waitKey(1)
@@ -281,6 +323,13 @@ class MainWindow(QMainWindow):
                 # Save origin image with ROI rect
                 cv2.rectangle(temp,(r[0],r[1]),(r[0]+r[2], r[1]+r[3]),(0,255,0),3)
                 cv2.imwrite(self.dirPath + '/' +  self.saveImageFileName + '_OriginWithROI' + '.bmp', temp)
+                self.vocWriter = None
+                self.vocWriter = Writer(self.dirPath + '/' +  self.inputImageFileName + '.xml', self.imageWidth, self.imageHeight)
+                labelType = self.comboBox_LabelType.currentText()
+                self.labelPt1 = (r[0], r[1])
+                self.labelPt2 = (r[0] + r[2], r[1] + r[3])
+                self.vocWriter.addObject(labelType, self.labelPt1[0], self.labelPt1[1], self.labelPt2[0], self.labelPt2[1])
+                self.vocWriter.save(self.dirPath + '/' +  self.inputImageFileName + '.xml')
             cv2.destroyAllWindows()
         return
 
@@ -293,7 +342,7 @@ class MainWindow(QMainWindow):
             fromCenter = False
             cv2.destroyAllWindows()
             temp = self.inputImage.copy()
-            if self.imageType is ImageType.DCM: 
+            if self.imageType is ImageType.RAW or self.imageType is ImageType.RAWS or self.imageType is ImageType.DCM: 
                 temp =  cv2.cvtColor(temp, cv2.COLOR_RGB2BGR)
             r = cv2.selectROI('Select ROI', temp, fromCenter, showCrosshair)
             cv2.waitKey(1)
@@ -359,12 +408,10 @@ class MainWindow(QMainWindow):
     def Btn_DICOMtoImage_Clicked(self):
         index = 1
         if self.imageType is ImageType.DCM:
-            dir = QFileDialog.getExistingDirectory(self, 
-                                                   'Open directory', 
-                                                   self.dirPath , 
-                                                   QFileDialog.ShowDirsOnly)
             for image in self.imageData:
-                cv2.imwrite(dir + '/' + str(index) + '.bmp', image)
+                if self.imageType is ImageType.RAW or self.imageType is ImageType.RAWS or self.imageType is ImageType.DCM: 
+                    image =  cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
+                cv2.imwrite(self.dirPath + '/' +  self.inputImageFileName + '_' + str(index) + '.bmp', image)
                 index += 1
         return
 
@@ -416,7 +463,7 @@ class MainWindow(QMainWindow):
                     self.vocWriter = Writer(directory + '/' +  fileName + '.xml', self.imageWidth, self.imageHeight)
                     cv2.imwrite(directory + '/' +  fileName + '.jpg', self.resultImage[index])
                     labelType = self.comboBox_LabelType.currentText()
-                    self.vocWriter.addObject(labelType, self.processedLabelPt1[0], self.processedLabelPt2[1], self.labelPt2[0], self.labelPt2[1])
+                    self.vocWriter.addObject(labelType, self.labelPt1[0], self.labelPt1[1], self.labelPt2[0], self.labelPt2[1])
                     self.vocWriter.save(directory + '/' +  fileName + '.xml')
         return
 
@@ -436,7 +483,7 @@ class MainWindow(QMainWindow):
             self.resultImage = []
             self.saveFileNameList = []
             self.processedImage = self.inputImage.copy()
-            if self.imageType is ImageType.DCM: 
+            if self.imageType is ImageType.RAW or self.imageType is ImageType.RAWS or self.imageType is ImageType.DCM: 
                 self.processedImage =  cv2.cvtColor(self.processedImage, cv2.COLOR_RGB2BGR)
             self.btn_Save.setEnabled(True)
             showCrosshair = False
@@ -582,6 +629,33 @@ class MainWindow(QMainWindow):
         self.btn_Save.setEnabled(False)
         return
 
+    # Solve shift problem when file is raw
+    def SolveShiftProblem(self, frameIndex, width, height, temp):
+        rgbStride = (((width * 24) + 31) & ~31) >> 3
+        rgbOffset = rgbStride - width * 3
+        bmpIndex = 0
+        memIndex = 0
+        imageSize = width * height
+        shiftedImg = temp.copy()
+        shiftedImg.setflags(write=1)
+        for h in range(height):
+            for w in range(width):
+                if memIndex < (height * width):
+                    shiftedImg[frameIndex*imageSize + bmpIndex] = temp[memIndex]
+                else:
+                    shiftedImg[frameIndex*imageSize + bmpIndex] = 0
+                bmpIndex += 1
+                memIndex += 1
+            if rgbOffset == 1:
+                if h % 3 == 1:
+                    memIndex += 1
+            elif rgbOffset == 2:
+                if h % 3 == 0 or h % 3 == 2:
+                    memIndex += 1
+            elif rgbOffset == 3:
+                memIndex += 1
+        return shiftedImg
+
     def DisplayImageToLabel(self):
         cv_img_rgb = self.inputImage
         if self.imageType is ImageType.JPG or self.imageType is ImageType.PNG or self.imageType is ImageType.BMP:
@@ -654,6 +728,7 @@ class MainWindow(QMainWindow):
         # self.setFixedSize(self.sizeHint())
         print('Tool Version: ' + self.toolVersion)
         print('Release Date: ' + self.releaseDate)
+        # with open("D:/Source/NewTFSWorkspace/BR-FHUS Smart System V1.1/TestRawData/R_20150924_160118_Righttemp.raws", mode='rb') as file: # b is important -> binary
         onlyInt = QIntValidator(0, 355)
         self.lineEdit_DegreeBegin.setValidator(onlyInt)
         self.lineEdit_DegreeEnd.setValidator(onlyInt)

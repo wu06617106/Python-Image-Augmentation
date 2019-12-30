@@ -321,7 +321,10 @@ QComboBox::drop-down
              </font>
             </property>
             <property name="text">
-             <string>DICOM to Image</string>
+             <string>DICOM to Image (D)</string>
+            </property>
+            <property name="shortcut">
+             <string>D</string>
             </property>
            </widget>
           </item>
@@ -337,7 +340,10 @@ QComboBox::drop-down
              </font>
             </property>
             <property name="text">
-             <string>ROI Square</string>
+             <string>ROI Square (S)</string>
+            </property>
+            <property name="shortcut">
+             <string>S</string>
             </property>
            </widget>
           </item>
@@ -353,7 +359,7 @@ QComboBox::drop-down
              </font>
             </property>
             <property name="text">
-             <string>ROI Save</string>
+             <string>ROI Save (R)</string>
             </property>
             <property name="shortcut">
              <string>R</string>
@@ -474,7 +480,10 @@ QPushButton:disabled {
                     </font>
                    </property>
                    <property name="text">
-                    <string>Next</string>
+                    <string>Next (N)</string>
+                   </property>
+                   <property name="shortcut">
+                    <string>N</string>
                    </property>
                   </widget>
                  </item>
