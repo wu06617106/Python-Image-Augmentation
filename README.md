@@ -10,7 +10,7 @@ Written in Python, OpenCV and PyQt
 ```
 conda create -n $your-env-name python=3.6.7  
 activate $your-env-name
-pip install PyQt5 opencv-python pydicom pascal-voc-writer
+pip install PyQt5, PyQt5-tools, numpy, opencv-python, pydicom, pascal-voc-writer 
 ```	
 Go to PythonImageAugmentation.py file location
 ```
@@ -27,8 +27,8 @@ python PythonImageAugmentation.py
 >pascal-voc-writer 0.1.4  
     
 3.最新版本  
->Tools Version: 1.5.6  
->Release Date: 2019/04/01  
+>Tools Version: 1.5.7   
+>Release Date: 2019/12/10  
 
 4.API 參考  
 >def Rotate(self, image, angle, center=None, scale=1.0)  
@@ -87,11 +87,6 @@ Ratio: 1 ~ 50
 例如:選擇套用Fliplr與Sharpen，就會產生  
 經過這兩種處理的一張影像。  
 
-# 建置與測試  
-__建置部分:__  
->本專案以Visual Studio 2017開發  
->Visual Studio 2017必須安裝Python開發環境  
-
 __測試部分:__  
 >**1.Open File:**  
 >執行PythonImageAugmentation.py  
@@ -122,44 +117,3 @@ __測試部分:__
 >除此之外還會額外產生四個Crop ROI。
 >**6. DICOM to Image**  
 >能將DICOM裡面的所有Frame存成BMP圖檔
-
-# 貢獻
->1.0.0版:  
-    支援JPG以及PNG檔案，影像處理效果包含Rotate、Sharpen、Contrast、  
-    GaussianNoise、Fliplr、SaltAndPepper、Pad  
->1.2.0版:  
-    Rotate方法改變為，輸入一個範圍與設定一個Step，  
-    程式會在選定範圍內，依照Step來逐一產生Rotate之影像。(Step：每次增  
-    加幾度)   
->1.3.0版：  
-    支援DICOM檔案  
->1.3.1版:  
-    修正Salt and Pepper method  
-    優化Contrast method.  
->1.3.2版:  
-    修正Affine Transform method  
-    修正一些參數的錯誤  
->1.3.3版:  
-    增加pascal_voc_writer  
-    輸出影像會額外產生相對應的PASCAL VOC檔案  
->1.4.0版:  
-    增加Crop method  
->1.4.1版:  
-    支援BMP檔案  
->1.5.0版:  
-	支援ROI存檔  
-	開檔模式改成選取資料夾，程式會讀取所有影像名稱，  
-	使用者可以用下拉式選單選擇檔案。  
->1.5.1版:  
-	修正讀取DCM檔案，OpenCV處理時沒有轉成BGR的問題。  
->1.5.2版:  
-	新增ROI Square功能，自動將選取的ROI短邊擴增到與長邊相等，輸出永遠為正方形。  
->1.5.3版:  
-	更新ROI Square功能，輸出更改為原本正方形ROI的1.3倍。  
->1.5.4版:  
-	更新ROI Square功能，額外輸出四個Crop ROI影像。  
->1.5.5版:  
-	新增DICOM to Image功能，將DICOM裡面的所有Frame存成BMP圖檔。  
-	修正讀取DICOM檔案時，Number of Frames讀取異常的問題。  
->1.5.6版:  
-	修正DICOM中NumberOfFrames這個Tag如果是空的問題。  
