@@ -1,5 +1,5 @@
-his is Image Augmentation Tool  
-Written in Python, OpenCV and PyQt
+This is Image Augmentation Tool  
+Using Python, Pydicom, OpenCV and PyQt
 
 ![image](https://github.com/wu06617106/Python-Image-Augmentation/blob/master/UI%20View.jpg)
 
